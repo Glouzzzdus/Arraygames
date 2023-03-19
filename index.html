@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="index.css" />
+  <title>Play with arrays</title>
+</head>
+
+<body>
+  <div>
+    <label>
+      Lenght of array (1 - 20)
+      <input id="lenght" type="number" max="20" min="1" value="20" /> </label>
+    <label>
+      Max.Value (0 - 100)
+      <input id="max-value" type="number" max="100" min="0" value="100" /> </label>
+    <label>
+      Min.Value (0 - 100)
+      <input id="min-value" type="number" max="100" min="0" value="1" />
+    </label>
+    <button id="gen-btn" onclick="createGistogramm()">Generate!</button>
+  </div> 
+  <h3>Random array # 1.</h3> 
+  <div class="value-container"></div>
+  <div class="histogram-container"></div>
+  <div class="index-container"></div>
+  <div>
+    <p>Get Array reverse (array.reverse())</p>
+    <button id="reverse-btn" onclick="drawGistogramm(data.reverse(), 'green')">Reverse it!</button>
+  </div>
+  <div>
+    <p>Get Array sort</p>
+    <button id="sort-btn" onclick="drawGistogramm(data.sort(), 'blue')">Sort it!</button>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
