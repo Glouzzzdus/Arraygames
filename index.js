@@ -4,6 +4,8 @@ const containerIdx = document.querySelector(".index-container");
 let arrLength = document.getElementById("lenght");
 let maxValue = document.getElementById("max-value");
 let minValue = document.getElementById("min-value");
+let filterFrom = document.getElementById("filter-min");
+let filterTo = document.getElementById("filter-max");
 let generateBtn = document.getElementById("gen-btn");
 let data = [];
 function getRandomInt(min, max) {
@@ -18,10 +20,16 @@ function generateRandomArray(length, min, max) {
   return result;
 }
 
+function filterRandomArray(num) {
+  let fMax = document.getElementById("filter-max").value;
+  let fMin = document.getElementById("filter-min").value;  
+  return num > fMin && num < fMax;
+}
+
 function drawGistogramm(arr, color) {
   container.innerHTML = "";
   containerVal.innerHTML = "";
-  containerIdx.innerHTML = "";
+  containerIdx.innerHTML = "";  
   for (let i = 0; i < arr.length; i++) {
     const column = document.createElement("div");
     const cValues = document.createElement("div");
@@ -43,6 +51,7 @@ function createGistogramm() {
   if (arrLength.value > 20 || arrLength.value <= 0) arrLength.value = 20;
   if (minValue.value > 100 || minValue.value < 0) minValue.value = 0;
   if (maxValue.value > 100 || maxValue.value < 0) maxValue.value = 100;
+
   data = generateRandomArray(arrLength.value, minValue.value, maxValue.value);
 
   console.log("length = " + arrLength.value);

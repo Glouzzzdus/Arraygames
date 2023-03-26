@@ -5,18 +5,23 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Titan+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="index.css" />
   <title>Play with arrays</title>
 </head>
 
 <body>
-  <div>
+  <div class="generate-area">
     <label>
       Lenght of array (1 - 20)
-      <input id="lenght" type="number" max="20" min="1" value="20" /> </label>
+      <input id="lenght" type="number" max="20" min="1" value="20" />
+    </label>
     <label>
       Max.Value (0 - 100)
-      <input id="max-value" type="number" max="100" min="0" value="100" /> </label>
+      <input id="max-value" type="number" max="100" min="0" value="100" /> 
+    </label>
     <label>
       Min.Value (0 - 100)
       <input id="min-value" type="number" max="100" min="0" value="1" />
@@ -32,8 +37,21 @@
     <button id="reverse-btn" onclick="drawGistogramm(data.reverse(), 'green')">Reverse it!</button>
   </div>
   <div>
-    <p>Get Array sort</p>
-    <button id="sort-btn" onclick="drawGistogramm(data.sort(), 'blue')">Sort it!</button>
+    <p>Get Array filter (array.filter(filtration-function))</p>
+    <label>
+      Filter from:
+      <input type="number" id="filter-min"/>
+    </label>
+    <label>
+      Filter to:
+      <input type="number" id="filter-max"/>
+    </label>
+    <button id="filter-btn" onclick="drawGistogramm(data.filter(filterRandomArray), 'yellow')">Filter it!</button>
+  </div>
+  <div>
+    <p>Get Array sort (array.sort(compare-function))</p>
+    <button id="sort-btn" onclick="drawGistogramm(data.sort(function(a, b){return a-b}), 'blue')">Sort it ascending!</button>
+    <button id="sort-btn" onclick="drawGistogramm(data.sort(function(a, b){return b-a}), 'blue')">Sort it descending!</button>
   </div>
   <script src="index.js"></script>
 </body>
